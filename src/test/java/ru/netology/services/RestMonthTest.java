@@ -2,14 +2,12 @@ package ru.netology.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 class RestMonthTest {
 
     @ParameterizedTest
-    @CsvSource({
-            "10000,3000,20000"
-    })
+    @CsvFileSource(files = "src/test/resources/RestMonthFinance.csv")
     void testCalculateRestMonth(int income, int expenses, int threshold) {
         RestMonth service = new RestMonth();
         int monthsOfRest = service.CalculateRestMonth(income, expenses, threshold);
@@ -18,9 +16,7 @@ class RestMonthTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "100000,60000,150000"
-    })
+    @CsvFileSource(files = "src/test/resources/RestMonthFinanceRich.csv")
     void testCalculateRestMonthRich(int income, int expenses, int threshold) {
         RestMonth service = new RestMonth();
         int monthsOfRest = service.CalculateRestMonth(income, expenses, threshold);

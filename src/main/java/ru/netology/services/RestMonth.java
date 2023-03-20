@@ -14,7 +14,6 @@ public class RestMonth {
         }
         return count;
     }
-
 }
 
 
